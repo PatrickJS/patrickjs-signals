@@ -1,0 +1,15 @@
+{
+  "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
+  "deno.enablePaths": ["./src"],
+  "deno.disablePaths": [
+    ".git",
+    ".github",
+    ".vscode",
+    ".history",
+    "dist",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "deno.enable": true
+}

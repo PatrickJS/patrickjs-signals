@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["deno.window", "dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "target": "esnext",
+    "strict": false,
+    "alwaysStrict": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false
+  }
+}
