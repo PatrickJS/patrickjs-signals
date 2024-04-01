@@ -78,14 +78,16 @@ export namespace Signal {
           "Wrong receiver type for Signal.State.prototype.get"
         );
       }
-      return signalGetFn<T>.call(this[NODE]);
+      const ref = this[NODE];
+      return signalGetFn.call<SignalNode<T>, [], T>(ref);
     }
 
     public set(newValue: T): void {
-      if (!isState(this))
+      if (!isState(this)) {
         throw new TypeError(
           "Wrong receiver type for Signal.State.prototype.set"
         );
+      }
       if (isInNotificationPhase()) {
         throw new Error(
           "Writes to signals not permitted during Watcher callback"

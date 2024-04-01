@@ -953,9 +953,9 @@ describe("type checks", () => {
       TypeError
     );
     expect(Signal.subtle.Watcher.prototype.watch.call(w, s)).toBe(undefined);
-    expect(() =>
-      Signal.subtle.Watcher.prototype.watch.call(w, w as AnySignal<any>)
-    ).toThrowError(TypeError);
+    expect(() => Signal.subtle.Watcher.prototype.watch.call(w, w)).toThrowError(
+      TypeError
+    );
 
     expect(() =>
       Signal.subtle.Watcher.prototype.unwatch.call(x, s)
