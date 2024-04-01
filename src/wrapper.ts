@@ -1,4 +1,4 @@
-// deno-lint-ignore-file no-namespace
+// deno-lint-ignore-file no-namespace no-explicit-any
 /**
  * @license
  * Copyright 2024 Bloomberg Finance L.P.
@@ -17,6 +17,7 @@
  */
 
 import { computedGet, createComputed, type ComputedNode } from "./computed.ts";
+
 import {
   SIGNAL,
   getActiveConsumer,
@@ -29,6 +30,7 @@ import {
   assertProducerNode,
   producerRemoveLiveConsumerAtIndex,
 } from "./graph.ts";
+
 import {
   createSignal,
   signalGetFn,
@@ -37,7 +39,6 @@ import {
 } from "./signal.ts";
 
 const NODE: unique symbol = Symbol("node");
-
 
 // deno-lint-ignore no-explicit-any
 let isState: (s: any) => boolean;
@@ -103,9 +104,7 @@ export namespace Signal {
     readonly [NODE]: ComputedNode<T>;
 
     #brand() {}
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     static {
-      // deno-lint-ignore no-explicit-any
       isComputed = (c: any) => #brand in c;
     }
 
